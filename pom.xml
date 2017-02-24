@@ -10,6 +10,113 @@
 	<modules>
 		<module>nsaLiqui-database</module>
 	</modules>
-	
-	
+	<profiles>
+		<profile>
+			<id>nsaLiqui-dev</id>
+			<properties>
+				<development.database.host>localhost</development.database.host>
+				<development.database.port>3306</development.database.port>
+				<development.database.dbname>nsaLiqui</development.database.dbname>
+				<development.database.user>nsaLiqui</development.database.user>
+				<development.database.password>nsaLiqui</development.database.password>
+			</properties>
+		</profile>
+	</profiles>
+
+	<scm>
+		<url>http://git.company.com/nsaLiqui</url>
+		<connection>scm:git:http://git.company.com/nsaLiqui.git</connection>
+		<developerConnection>scm:git:http://git.company.com/nsaLiqui.git</developerConnection>
+		<tag>nsaLiqui-0_0_1</tag>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>releases</id>
+			<name>Releases</name>
+			<url>http://maven.company.com/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>public-snapshots</id>
+			<url>http://maven.company.com/content/repositories/public-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>fr.project.nsaLiqui</groupId>
+				<artifactId>nsaLiqui-database</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>javax</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>6.0</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.openejb</groupId>
+				<artifactId>javaee-api</artifactId>
+				<version>6.0-5</version>
+				<scope>provided</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.1</version>
+					<configuration>
+						<source>1.7</source>
+						<target>1.7</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-war-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-jar-plugin</artifactId>
+					<version>2.5</version>
+					<configuration>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+				<plugin>
+					<artifactId>maven-ejb-plugin</artifactId>
+					<version>2.4</version>
+					<configuration>
+						<ejbVersion>3.1</ejbVersion>
+						<archive>
+							<manifest>
+								<addClasspath>true</addClasspath>
+							</manifest>
+						</archive>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>
+
 </project>

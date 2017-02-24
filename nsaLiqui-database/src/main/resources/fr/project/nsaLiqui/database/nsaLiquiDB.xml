@@ -1,0 +1,12 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="nguyent" context="structure">
+        <comment>Init data structure nsaLiqui-0_0_1</comment>
+        <sqlFile dbms="mysql" encoding="utf8" path="sql/DDL_nsaLiqui_0.0.1.sql" relativeToChangelogFile="true" />
+    </changeSet>
+</databaseChangeLog>
